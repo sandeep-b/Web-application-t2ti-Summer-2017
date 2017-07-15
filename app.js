@@ -470,7 +470,7 @@ Contributor.update({username:req.user.id},{$push:{School:School}},function(err, 
         console.log(err);
     }
     //console.log(result);
-   /*else{
+   else{
         Contributor.find({username:req.user.id},function(err, re){
             if(err)
             {
@@ -486,7 +486,7 @@ Contributor.update({username:req.user.id},{$push:{School:School}},function(err, 
         } );
             
         
-    }*/
+    }
 });
 
 
