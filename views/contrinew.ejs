@@ -1,0 +1,82 @@
+<% include partials/header %>
+
+   
+         <div class="container">
+              <div class="row">
+              <div style="width :60%; vertical-align:top; margin:0 auto;">
+                  <div class="jumbotron jumbotron-fluid">
+                  <h2 style="text-align: center">School details</h2>
+            </div>
+                </div>
+             
+</div>
+     </div>
+
+
+<div class="container">
+    <div class="row">
+        <div style="width : 40%; vertical-align:top; margin:0 auto;">
+            <form class="form-horizontal" action="/details/Contributor" method="POST">
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="name">Name</label>
+                    <div class="col-sm-9">
+                     <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+                     </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="Address">Address:</label>
+                    <div class="col-sm-9">
+                     <input type="text" class="form-control" id="Address" name="address" placeholder="Enter Address">
+                     </div>
+                </div>
+                <div class="form-group">
+            <label class="col-sm-3 control-label" for="city">City</label>
+            <div class="col-sm-3">
+              <input type="text" placeholder="city" id="city"  name="city"class="form-control">
+            </div>
+
+            <label class="col-sm-2 control-label" for="Pincode">Pincode</label>
+            <div class="col-sm-4">
+              <input type="text" placeholder="Pincode" id="Pincode"  name="pincode" class="form-control">
+            </div>
+          </div>
+           <div class="form-group">
+            <label class="col-sm-3 control-label" for="Telephone" >Telephone</label>
+            <div class="col-sm-4">
+              <input type="text" placeholder="Telephone no" id="Telephone" name="telephone" class="form-control">
+            </div>
+
+            <label class="col-sm-1 control-label" for="Mobile" Style="font-size:93%;">Mobile</label>
+            <div class="col-sm-4">
+              <input type="text" maxlength="10"  placeholder="Mobile" id="Mobile" name="mobile" class="form-control">
+            </div>
+          </div>
+            
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="Email">Email</label>
+                    <div class="col-sm-9">
+                     <input type="email" class="form-control" id="Email" name="email" placeholder="Enter Email">
+                     </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="Represntative name"></label>
+                    <div class="col-sm-9">
+                     <button  class="btn btn-lg btn-primary btn-block" id="Represntative name">Submit</button>
+                </div>
+                </div>
+                
+        </div>
+            </form>
+        </div>
+        
+        
+    </div>
+ </div>
+    
+    
+        
+
+</div>
+<% include partials/footer %>
+                

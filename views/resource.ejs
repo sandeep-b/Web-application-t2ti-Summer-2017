@@ -1,0 +1,394 @@
+<html>
+    <head>
+        <title>NGO application</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    </head>
+    <style>
+    @import "https://fonts.googleapis.com/css?family=Montserrat:300,400,700";
+.rwd-table {
+  
+  margin: 1em 0;
+  min-width: 700px;
+}
+.rwd-table tr {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.rwd-table th {
+  display: none;
+}
+.rwd-table td {
+  display: block;
+}
+.rwd-table td:first-child {
+  padding-top: .5em;
+}
+.rwd-table td:last-child {
+  padding-bottom: .5em;
+}
+.rwd-table td:before {
+  content: attr(data-th) ": ";
+  font-weight: bold;
+  width: 6.5em;
+  display: inline-block;
+}
+@media (min-width: 480px) {
+  .rwd-table td:before {
+    display: none;
+  }
+}
+.rwd-table th, .rwd-table td {
+  text-align: left;
+}
+@media (min-width: 480px) {
+  .rwd-table th, .rwd-table td {
+    display: table-cell;
+    padding: .25em .5em;
+  }
+  .rwd-table th:first-child, .rwd-table td:first-child {
+    padding-left: 0;
+  }
+  .rwd-table th:last-child, .rwd-table td:last-child {
+    padding-right: 0;
+  }
+}
+
+body {
+  padding: 0 2em;
+  font-family: Montserrat, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  color: #444;
+  background: white;
+}
+
+h1 {
+  font-weight: normal;
+  letter-spacing: -1px;
+  color: #34495E;
+}
+
+.rwd-table {
+  background: #34495E;
+  color: #fff;
+  border-radius: .4em;
+  overflow: hidden;
+}
+.rwd-table tr {
+  border-color: #46637f;
+}
+.rwd-table th, .rwd-table td {
+  margin: .5em 1em;
+}
+@media (min-width: 480px) {
+  .rwd-table th, .rwd-table td {
+    padding: 1em !important;
+  }
+}
+.rwd-table th, .rwd-table td:before {
+  color: #dd5;
+}</style>
+    <body>
+         <nav class="navbar navbar-default">
+        <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+                <a class="navbar-brand" href="/">Home</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-center">
+                    
+                    <li><a href="/">About US</a></li>
+                     <li><a href="/">Conatct US</a></li>
+                      </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <% if(!currentUser){ %>
+                      <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
+                       
+                     <% } else { %>
+                     <li><a href="#">Signed In As <%= currentUser.username %></a></li>
+                     <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
+                     <% } %>
+                    
+                </ul>
+            </div>
+            
+        </div>
+    </nav>
+<div class="container">
+    <div class="row">
+        <div style="width : 60%; margin:0 auto;">
+          
+<form class="form" action="/Contributor/details/<%=details.id%>" method="POST">          
+<h1>Donate</h1>
+<table class="rwd-table">
+   
+  <tr>
+    <th style="text-align:center;" colspan="4">Details</th>
+
+  </tr>
+  <tr>
+    <th style="text-align:center;" colspan="2">Requirement </th>
+    <th style="text-align:center;" colspan="2">Donate </th>
+  </tr>
+
+   <tr>
+    
+      
+   </tr>
+   
+    <tr>
+    <td data-th colspan="1">Fan</td>
+      <td data-th colspan="1"><%=  details.Infra[0].fan%></td>
+      <td data-th colspan="1">Fan</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="fan" name="fan" value="0" min="0" max="<%= details.Infra[0].fan%>" step="1"></td>
+  </tr>
+  <td data-th colspan="1">Lights</td>
+      <td data-th colspan="1"><%=  details.Infra[0].lights%></td>
+      <td data-th colspan="1">Lights</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="lights" name="lights" value="0" min="0" max="<%= details.Infra[0].lights%>" step="1"></td>
+  </tr>
+      <tr>
+    <td data-th colspan="0.5">Water purifier</td>
+      <td data-th colspan="0.5"><%=  details.Infra[0].purifier%></td>
+      <td data-th colspan="1">Water purifier</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="purifier" name="purifier" value="0" min="0" max="<%= details.Infra[0].purifier%>" step="1"></td>
+      
+  
+  </tr>
+      <tr>
+        <td data-th colspan="0.5">White/black board</td>
+      <td data-th colspan="0.5"><%= details.Infra[0].board%></td>
+      <td data-th colspan="1">White/black board</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="board" name="board" value="0" min="0" max="<%= details.Infra[0].board%>" step="1"></td>
+    </tr>
+    <tr>
+    <td data-th colspan="0.5">Toilet for boys</td>
+      <td data-th colspan="0.5"><%=  details.Infra[0].tboys%></td>
+      <td data-th colspan="0.5">Toilet for boys</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="tboys" name="tboys" value="0" min="0" max="<%= details.Infra[0].tboys%>" step="1"></td>
+    </tr>
+    <tr>
+       <td data-th colspan="0.5">Toilet for girls</td>
+      <td data-th colspan="0.5"><%=  details.Infra[0].tgirls%></td>
+      <td data-th colspan="0.5">Toilet for boys</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="tgirls" name="tgirls" value="0" min="0" max="<%= details.Infra[0].tgirls%>" step="1"></td>
+  </tr>
+   
+  <tr>
+    <td data-th colspan="0.5">Laptop</td>
+      <td data-th colspan="0.5"><%=  details.Digital[0].laptop%></td>
+      <td data-th colspan="0.5">Laptop</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="laptop" name="laptop" value="0" min="0" max="<%= details.Digital[0].laptop%>" step="1"></td>
+      
+      
+  </tr>
+  <tr>
+      <td data-th colspan="0.5">Monitor</td>
+      <td data-th colspan="0.5"><%=  details.Digital[0].monitor%></td>
+      <td data-th colspan="0.5">Monitor</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="monitor" name="monitor" value="0" min="0" max="<%= details.Digital[0].monitor%>" step="1"></td>
+    </tr>
+    <tr>
+        <td data-th colspan="1">CPU</td>
+      <td data-th colspan="1"><%=  details.Digital[0].cpu%></td>
+      <td data-th colspan="0.5">CPU</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="cpu" name="cpu" value="0" min="0" max="<%= details.Digital[0].cpu%>" step="1"></td>
+
+  </tr>
+   <tr>
+    <td data-th colspan="1">Projector</td>
+      <td data-th colspan="1"><%=  details.Digital[0].projector%></td>
+      <td data-th colspan="0.5">CPU</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="projector" name="projector" value="0" min="0" max="<%= details.Digital[0].projector%>" step="1"></td>
+    </tr>
+    <tr>
+    <td data-th colspan="1">Mouse</td>
+      <td data-th colspan="1"><%=  details.Digital[0].mouse%></td>
+      <td data-th colspan="0.5">Mouse</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="mouse" name="mouse" value="0" min="0" max="<%= details.Digital[0].mouse%>" step="1"></td>
+      </tr>
+    <tr>
+      <td data-th colspan="1">Keyboard</td>
+      <td data-th colspan="1"><%=  details.Digital[0].keyboard%></td>
+      <td data-th colspan="0.5">Keyboard</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="keyboard" name="keyboard" value="0" min="0" max="<%= details.Digital[0].keyboard%>" step="1"></td>
+  </tr>
+  <td data-th colspan="4" style="text-align: center;" >Stationaries</td>
+  <tr>
+  <td data-th colspan="1">Ruled books</td>
+      <td data-th colspan="1"><%=  details.Stationaries[0].rbooks%></td>
+      <td data-th colspan="0.5">Ruled books</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="rbooks" name="rbooks" value="0" min="0" max="<%= details.Stationaries[0].rbooks%>" step="1"></td>
+      
+  </tr>
+  <tr>
+      <td data-th colspan="1">Unruled books</td>
+      <td data-th colspan="1"><%=  details.Stationaries[0].urbooks%></td>
+      <td data-th colspan="0.5">Unruled books</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="urbooks" name="urbooks" value="0" min="0" max="<%= details.Stationaries[0].urbooks%>" step="1"></td>
+ </tr>
+ <tr>
+      <td data-th colspan="1">Math books</td>
+      <td data-th colspan="1"><%=  details.Stationaries[0].mbooks%></td>
+      <td data-th colspan="0.5">Math books</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="mbooks" name="mbooks" value="0" min="0" max="<%= details.Stationaries[0].mbooks%>" step="1"></td>
+      
+  </tr>
+  <tr>
+      <td data-th colspan="1">Cursive writting books</td>
+      <td data-th colspan="1"><%=  details.Stationaries[0].cbooks%></td>
+      <td data-th colspan="0.5">Cursive writting</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="cbooks" name="cbooks" value="0" min="0" max="<%= details.Stationaries[0].cbooks%>" step="1"></td>
+      </tr>
+      <tr>
+  <td data-th colspan="1">Dictonary</td>
+      <td data-th colspan="1"><%=  details.Stationaries[0].dictonary%></td>
+      <td data-th colspan="0.5">Dictonary</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="dictonary" name="dictonary" value="0" min="0" max="<%= details.Stationaries[0].dictonary%>" step="1"></td>
+      
+  </tr>
+  <tr>
+      <td data-th colspan="1">Atlas</td>
+      <td data-th colspan="1"><%=  details.Stationaries[0].atlas%></td>
+      <td data-th colspan="0.5">Atlas</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="atlas" name="atlas" value="0" min="0" max="<%= details.Stationaries[0].atlas%>" step="1"></td>
+  </tr>
+  <tr>
+  <td data-th colspan="1">Bags</td>
+      <td data-th colspan="1"><%=  details.Stationaries[0].bags%></td>
+      <td data-th colspan="0.5">Bags</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="bags" name="bags" value="0" min="0" max="<%= details.Stationaries[0].bags%>" step="1"></td>
+  </tr>
+  <tr>
+      <td data-th colspan="1">Pencil</td>
+      <td data-th colspan="1"><%=  details.Stationaries[0].pencil%></td>
+      <td data-th colspan="0.5">Pencil</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="pencil" name="pencil" value="0" min="0" max="<%= details.Stationaries[0].pencil%>" step="1"></td>
+  
+  </tr>
+  <tr>
+  <td data-th colspan="1">Pen</td>
+      <td data-th colspan="1"><%=  details.Stationaries[0].pen%></td>
+      <td data-th colspan="0.5">Pen</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="pen" name="pen" value="0" min="0" max="<%= details.Stationaries[0].pen%>" step="1"></td>
+  </tr>
+  <tr>
+      <td data-th colspan="1">Eraser</td>
+      <td data-th colspan="1"><%=  details.Stationaries[0].eraser%></td>
+      <td data-th colspan="0.5">Eraser</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="eraser" name="eraser" value="0" min="0" max="<%= details.Stationaries[0].eraser%>" step="1"></td>
+  
+  </tr>
+  <tr>
+  <td data-th colspan="1">Sharpner</td>
+      <td data-th colspan="1"><%=  details.Stationaries[0].sharpner%></td>
+      <td data-th colspan="0.5">Sharpner</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="sharpner" name="sharpner" value="0" min="0" max="<%= details.Stationaries[0].sharpner%>" step="1"></td>
+  </tr>
+  <tr>
+      <td data-th colspan="1">Geomerty box</td>
+      <td data-th colspan="1"><%=  details.Stationaries[0].gbox%></td>
+      <td data-th colspan="0.5">Geomerty box</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="gbox" name="gbox" value="0" min="0" max="<%= details.Stationaries[0].gbox%>" step="1"></td>
+  
+  </tr>
+    <td data-th colspan="4" style="text-align: center;">Services </td>
+     <tr>
+  <td data-th colspan="1">Internet</td>
+      <td data-th colspan="1"><%=  details.Services[0]%></td>
+      <td data-th colspan="1">News paper </td>
+      <td data-th colspan="1"><%=  details.Services[0]%></td>
+  </tr>
+  <tr>
+  <td data-th colspan="1">Magazine</td>
+      <td data-th colspan="1"><%=  details.Services[0]%></td>
+      <td data-th colspan="1"></td>
+      <td data-th colspan="1"></td>
+  </tr>
+   <td data-th colspan="4" style="text-align: center;">Value-added curriculum </td> 
+   <tr>
+   <td data-th colspan="1">Personal hygiene</td>
+      <td data-th colspan="1"><%=  details.Ecurriculum[0].hygiene%></td>
+      <td data-th colspan="0.5">Personal hygiene</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="hygiene" name="hygiene" value="0" min="0" max="<%= details.Ecurriculum[0].hygiene%>" step="1"></td>
+  </tr>
+  <tr>
+      <td data-th colspan="1">Environmental awareness</td>
+      <td data-th colspan="1"><%=  details.Ecurriculum[0].eawarness%></td>
+      <td data-th colspan="0.5">Environmental awareness</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="eawarness" name="eawarness" value="0" min="0" max="<%= details.Ecurriculum[0].eawarness%>" step="1"></td>
+  </tr>
+  <tr>
+   <td data-th colspan="1">Moral Science</td>
+      <td data-th colspan="1"><%=  details.Ecurriculum[0].mscience%></td>
+      <td data-th colspan="0.5">Moral Science</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="mscience" name="mscience" value="0" min="0" max="<%= details.Ecurriculum[0].mscience%>" step="1"></td>
+      </tr>
+      <tr>
+      <td data-th colspan="1">Karate</td>
+      <td data-th colspan="1"><%=  details.Ecurriculum[0].karate%></td>
+     <td data-th colspan="0.5">Karate</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="karate" name="karate" value="0" min="0" max="<%= details.Ecurriculum[0].karate%>" step="1"></td>
+      
+  </tr>
+  <tr>
+   <td data-th colspan="1">Yoga</td>
+      <td data-th colspan="1"><%=  details.Ecurriculum[0].yoga%></td>
+      <td data-th colspan="0.5">Yoga</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="yoga" name="yoga" value="0" min="0" max="<%= details.Ecurriculum[0].yoga%>" step="1"></td>
+      </tr>
+      <tr>
+      <td data-th colspan="1">Dance</td>
+      <td data-th colspan="1"><%=  details.Ecurriculum[0].dance%></td>
+      <td data-th colspan="0.5">Dance</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="dance" name="dance" value="0" min="0" max="<%= details.Ecurriculum[0].dance%>" step="1"></td>
+      
+  </tr>
+  <tr>
+   <td data-th colspan="1">Inspirational stories</td>
+      <td data-th colspan="1"><%=  details.Ecurriculum[0].istory%></td>
+      <td data-th colspan="0.5">Inspirational stories</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="istory" name="istory" value="0" min="0" max="<%= details.Ecurriculum[0].istory%>" step="1"></td>
+      </tr>
+      <tr>
+      <td data-th colspan="1">Arts and craft</td>
+      <td data-th colspan="1"><%=  details.Ecurriculum[0].craft%></td>
+      <td data-th colspan="0.5">Arts and craft</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="craft" name="craft" value="0" min="0" max="<%= details.Ecurriculum[0].craft%>" step="1"></td>
+      
+  </tr>
+  <tr>
+   <td data-th colspan="1">Debate</td>
+      <td data-th colspan="1"><%=  details.Ecurriculum[0].debate%></td>
+      <td data-th colspan="0.5">Debate</td>
+      <td data-th colspan="1"><input type="Number" class="form-control " id="debate" name="debate" value="0" min="0" max="<%= details.Ecurriculum[0].debate%>" step="1"></td>
+      </tr>
+  </tr>
+  
+</table>
+                    <div class="form-group">
+                    
+                    
+                     <button  class="btn btn-lg btn-primary btn-block" id="Represntative name">Donate</button>
+                
+                </div>
+ <a href="/Contributor/<%= details.username%>" >Go Back</a> 
+ </form>
+ 
+ </div>
+</div>
+</div>
+
+
+</body>
+
+</html>
+ 

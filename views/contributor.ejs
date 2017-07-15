@@ -1,0 +1,45 @@
+<% include partials/header %>
+
+<div class="container">
+              <div class="row">
+              <div style="width :60%; vertical-align:top; margin:0 auto;">
+                  <div class="jumbotron jumbotron-fluid">
+                  <h2 style="text-align: center">List of schools</h2>
+            </div>
+                </div>
+             
+</div>
+     </div>
+<div class="container">
+    <div class="row">
+        <div style="width : 40%; margin:0 auto;">
+        <table class="table table-striped">
+            <tr >
+               
+            </tr>
+        <% schools.forEach(function(schools){ %>
+        
+            
+            <!--div class="col-md-10 col-sm-10"-->
+                <tr>
+                    <td colspan="3">
+                <a href="/School/details/<%= schools._id %>"> <%= schools.sname %></a>
+                   
+               
+              </td>
+              <td colspan="1" align="right">
+                   <!--div class="col-md-2 col-sm-2"-->
+                       <a  href="/Contributor/details/<%= schools._id %>"  style="text-align:center;"type="button" class="btn btn-success">Donate</a>
+                     
+                   
+                   </td>
+                      </tr> 
+               
+           
+        <% }); %>
+        </table>
+    </div>
+    </div>
+    </div>
+    
+    <% include partials/footer %>

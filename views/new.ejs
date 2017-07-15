@@ -1,0 +1,267 @@
+<% include partials/header %>
+
+   
+         <div class="container">
+              <div class="row">
+              <div style="width :60%; vertical-align:top; margin:0 auto;">
+                  <div class="jumbotron jumbotron-fluid">
+                  <h2 style="text-align: center">School details</h2>
+            </div>
+                </div>
+             
+</div>
+     </div>
+
+
+<div class="container">
+    <div class="row">
+        <div style="width : 40%; vertical-align:top; margin:0 auto;">
+            <form class="form-horizontal" action="/details/SchoolRep" method="POST">
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="Schoolname">School name:</label>
+                    <div class="col-sm-9">
+                     <input type="text" class="form-control" id="Schoolname" name="sname" placeholder="Enter School name">
+                     </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="Represntative name">Represntative name:</label>
+                    <div class="col-sm-9">
+                     <input type="text" class="form-control" id="Represntative name" name="rname" placeholder="Enter Represntative name">
+                     </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="Address">Address:</label>
+                    <div class="col-sm-9">
+                     <input type="text" class="form-control" id="Address" name="address" placeholder="Enter Address">
+                     </div>
+                </div>
+                <div class="form-group">
+            <label class="col-sm-3 control-label" for="city">State</label>
+            <div class="col-sm-3">
+              <input type="text" placeholder="city" id="city"  name="city"class="form-control">
+            </div>
+
+            <label class="col-sm-2 control-label" for="Pincode">Postcode</label>
+            <div class="col-sm-4">
+              <input type="text" placeholder="Pincode" id="Pincode"  name="pincode" class="form-control">
+            </div>
+          </div>
+           <div class="form-group">
+            <label class="col-sm-3 control-label" for="Telephone" >Telephone</label>
+            <div class="col-sm-4">
+              <input type="text" placeholder="Telephone no" id="Telephone" name="telephone" class="form-control">
+            </div>
+
+            <label class="col-sm-1 control-label" for="Mobile" Style="font-size:93%;">Mobile</label>
+            <div class="col-sm-4">
+              <input type="text" maxlength="10"  placeholder="Mobile" id="Mobile" name="mobile" class="form-control">
+            </div>
+          </div>
+            
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="Email">Email</label>
+                    <div class="col-sm-9">
+                     <input type="email" class="form-control" id="Email" name="email" placeholder="Enter Email">
+                     </div>
+                </div>
+                
+                 <div class="form-group">
+                    <label class="control-label col-sm-3" for="Infra">Infrastructure:</label>
+                    
+                        <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="fan" >Fan</label>
+                            <input type="Number" class="form-control col-sm-1" id="fan" name="fan" value="0" min="0" step="1">
+                         </div>
+                        <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="lights">Tubelights</label>
+                            <input type="Number" class="form-control col-sm-1" id="lights" name="lights" value="0" min="0" step="1">
+                        </div>
+                        <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="purifier">Waterpurifier</label>
+                            <input type="Number" class="form-control col-sm-1" id="purifier"name="purifier" value="0"min="0" step="1">
+                            </div>
+                             
+                    <label class="control-label col-sm-3" for="Infra"></label>
+                           
+                            <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="board">white/black board</label>
+                            <input type="Number" class="form-control col-sm-1" id="board" value="0" name="board" min="0" step="1">
+                            </div>
+                            <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="tboys" >Toiletfor boys:</label>
+                            <input type="Number" class="form-control col-sm-1" id="tboys" name="tboys" value ="0"min="0" step="1">
+                             </div>
+                             <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="tgirls" >Toiletfor girls:</label>
+                            <input type="Number" class="form-control col-sm-1" id="tgirls" name="tgirls" value ="0"min="0" step="1">
+                             </div>
+                        
+                </div>        
+                        <br>
+                    <div class="form-group">
+                    <label class="control-label col-sm-3" for="Infra">Digital device:</label>
+                         <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="laptop" >Laptop</label>
+                            <input type="Number" class="form-control col-sm-1" id="laptop" name="laptop" value="0" min="0" step="1">
+                         </div>
+                         <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="monitor" >Monitor</label>
+                            <input type="Number" class="form-control col-sm-1" id="monitor" name="monitor" value="0" min="0" step="1">
+                         </div>
+                         <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="CPU" >CPU</label>
+                            <input type="Number" class="form-control col-sm-1" id="cpu" name="cpu" value="0" min="0" step="1">
+                         </div>
+                         <label class="control-label col-sm-3" for="Infra"></label>
+                        <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="projector" >Projector</label>
+                            <input type="Number" class="form-control col-sm-1" id="projector" name="projector" value="0" min="0" step="1">
+                         </div>
+                         <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="mouse" >Mouse</label>
+                            <input type="Number" class="form-control col-sm-1" id="mouse" name="mouse" value="0" min="0" step="1">
+                         </div>
+                          <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="keyboard" >Keyboard</label>
+                            <input type="Number" class="form-control col-sm-1" id="keyboard" name="keyboard" value="0" min="0" step="1">
+                         </div>
+                    
+                    
+                 </div>
+                 
+                 <br>
+                 <div class="form-group">
+                    <label class="control-label col-sm-3" for="stationaries:">Stationaries:</label>
+                    <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="rbooks" >Ruled books</label>
+                            <input type="Number" class="form-control col-sm-1" id="rbooks" name="rbooks" value="0" min="0" step="1">
+                    </div>
+                    <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="urbooks" >Unruled books</label>
+                            <input type="Number" class="form-control col-sm-1" id="urbooks" name="urbooks" value="0" min="0" step="1">
+                    </div>
+                    <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="mbooks" >Math books</label>
+                            <input type="Number" class="form-control col-sm-1" id="mbooks" name="mbooks" value="0" min="0" step="1">
+                    </div>
+                    <label class="control-label col-sm-3" for="stationaries:"></label>
+                    <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="cbooks" >Cursivewritting</label>
+                            <input type="Number" class="form-control col-sm-1" id="cbooks" name="cbooks" value="0" min="0" step="1">
+                    </div>
+                     <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="dictonary">Dictonary<br></label>
+                            <input type="Number" class="form-control col-sm-1" id="dictonary" name="dictonary" value="0" min="0" step="1">
+                    </div>
+                     <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="atlas" >Atlas</label>
+                            <input type="Number" class="form-control col-sm-1" id="atlas" name="atlas" value="0" min="0" step="1">
+                    </div>
+                    <label class="control-label col-sm-3" for="stationaries"></label>
+                     <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="bags" >Bags</label>
+                            <input type="Number" class="form-control col-sm-1" id="bags" name="bags" value="0" min="0" step="1">
+                    </div>
+                    <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="pencil" >Pencil</label>
+                            <input type="Number" class="form-control col-sm-1" id="pencil" name="pencil" value="0" min="0" step="1">
+                    </div>
+                    <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="pen" >Pen</label>
+                            <input type="Number" class="form-control col-sm-1" id="penc" name="pen" value="0" min="0" step="1">
+                    </div>
+                    <label class="control-label col-sm-3" for="stationaries:"></label>
+                     <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="eraser" >Eraser</label>
+                            <input type="Number" class="form-control col-sm-1" id="eraser" name="eraser" value="0" min="0" step="1">
+                    </div>
+                    <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="sharpner" >Sharpner</label>
+                            <input type="Number" class="form-control col-sm-1" id="eraser" name="sharpner" value="0" min="0" step="1">
+                    </div>
+                    <label class="control-label col-sm-3" for="stationaries"></label>
+                     <div class="col-sm-3" style="horizontal-align: middle;">
+                            <label class="control-label col-sm-3" for="gbox" >Geomerty box</label>
+                            
+                            <input type="Number" class="form-control col-sm-1" id="gbox"name="gbox" value="0" min="0" step="1">
+                    </div>
+                    
+                </div>
+                <br>
+                <div class="form-group">
+                <label class="control-label col-sm-3" for="services">Services</label>
+                     <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="internet" >Internet</label>
+                            <input  class="form-control" type="checkbox" name="services" value="internet">
+                    </div>
+                    <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="newspaper" >Newspaper</label>
+                            <input  class="form-control" type="checkbox" name="services" value="newspaper">
+                    </div>
+                    <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="newspaper" >Magazine</label>
+                            <input  class="form-control" type="checkbox" name="services" value="magazine">
+                    </div>
+                    </div>
+                    <div class="form-group" style="text-align:center;">
+                <label class="control-label col-sm-3" for="services" style="  word-wrap:break-word">Value-added curriculum(Sessions in hours)</label>
+                <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="hygiene" >Personal hygiene</label>
+                            <input type="Number" class="form-control col-sm-1" id="hygiene"name="hygiene" value="0" min="0" step="1">
+                    </div>
+                    <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="eawarness" >Environmental awareness</label>
+                            <input type="Number" class="form-control col-sm-1" id="eawarness" name="eawarness" value="0" min="0" step="1">
+                    </div>
+                     <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="mscience" >Moral science</label>
+                            <input type="Number" class="form-control col-sm-1" id="mscience" name="mscience" value="0" min="0" step="1">
+                    </div>
+                    
+                <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="karate" >Karate</label>
+                            <input type="Number" class="form-control col-sm-1" id="karate" name="karate" value="0" min="0" step="1">
+                    </div>
+                    <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="yoga" >Yoga</label>
+                            <input type="Number" class="form-control col-sm-1" id="yoga" name="yoga" value="0" min="0" step="1">
+                    </div>
+                     <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="dance" >Dance</label>
+                            <input type="Number" class="form-control col-sm-1" id="dance" name="dance" value="0" min="0" step="1">
+                    </div>
+                     <label class="control-label col-sm-3" for="hygiene" ></label>
+                    <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="istory" >Inspirational stories</label>
+                            <input type="Number" class="form-control col-sm-1" id="istory" name="istory" value="0" min="0" step="1">
+                    </div>
+                    <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="craft" style="text-align:center;width :100px;word-wrap:break-word" >Arts and craft</label>
+                            <input type="Number" class="form-control col-sm-1" id="" name="craft" value="0" min="0" step="1">
+                    </div>
+                     <div class="col-sm-3">
+                            <label class="control-label col-sm-3" for="debate" style=" text-align : centre;min-height:47px;vertical-align: middle;" >debate</label>
+                            <input type="Number" class="form-control col-sm-1" id="debate" name="debate" value="0" min="0" step="1">
+                    </div>
+                    </div>
+                 <div class="form-group">
+                    <label class="control-label col-sm-3" for="Represntative name"></label>
+                    <div class="col-sm-9">
+                     <button  class="btn btn-lg btn-primary btn-block" id="Represntative name">Submit</button>
+                </div>
+                </div>
+                
+                </div>
+            </form>
+        </div>
+        
+        
+    </div>
+ </div>
+    
+    
+        
+
+</div>
+
+<% include partials/footer %>
