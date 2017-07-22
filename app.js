@@ -17,7 +17,7 @@ var express     = require("express"),
 //prod db: mongodb://<dbuser>:<dbpassword>@ds159662.mlab.com:59662/t2ti
 //"mongodb://t2ti:t2ti2017@ds159662.mlab.com:59662/t2ti"
 //localDB: mongodb://localhost/ngo1
-mongoose.connect("mongodb://localhost/ngo1");
+mongoose.connect("mongodb://t2ti:t2ti2017@ds159662.mlab.com:59662/t2ti");
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine","ejs") ;
 app.use(methodOverride("_method"));
