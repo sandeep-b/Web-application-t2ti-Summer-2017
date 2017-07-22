@@ -17,10 +17,11 @@ var ContributorSchema=new mongoose.Schema({
         }
         },
     School:[{
-
+sid:{
       id:{
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Schoolrep"
+           ref: "Schoolrep"
+      }
         },
      
 

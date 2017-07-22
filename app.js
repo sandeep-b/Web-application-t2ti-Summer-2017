@@ -15,8 +15,9 @@ var express     = require("express"),
     Contributor   = require("./models/contributor");
 
 //prod db: mongodb://<dbuser>:<dbpassword>@ds159662.mlab.com:59662/t2ti
+//"mongodb://t2ti:t2ti2017@ds159662.mlab.com:59662/t2ti"
 //localDB: mongodb://localhost/ngo1
-mongoose.connect("mongodb://t2ti:t2ti2017@ds159662.mlab.com:59662/t2ti");
+mongoose.connect("mongodb://localhost/ngo1");
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine","ejs") ;
 app.use(methodOverride("_method"));
@@ -458,7 +459,7 @@ Ecurriculum.push({
     debate:req.body.debate,
 });
 School.push({
-    id:  req.params.id ,
+    sid: req.params.id ,
     Infra:Infra,
     Digital:Digital,
     
@@ -472,23 +473,28 @@ Contributor.update({username:req.user.id},{$push:{School:School}},function(err, 
     }
     //console.log(result);
    else{
-        Contributor.find({username:req.user.id},function(err, re){
+        
+            
+        
+    }
+});
+console.log(req.params.id);
+Contributor.find(
+    
+    { "School.0.sid":req.params.id} ,function(err, re){
             if(err)
             {
                console.log(err);
                
             }
             else{
-                console.log("This re " + re[0].School[0]);
+              //  var as = JSON.parse(re[0].School[0]["Infra"]);
+                console.log("Re is : "+re[0]);
             }
             
         
             
         } );
-            
-        
-    }
-});
 
 
 var transporter = nodemailer.createTransport({
@@ -765,8 +771,13 @@ app.post('/reset/:token', function(req, res) {
   });
 });
 
+app.get("/about",function(req, res) {
+  res.render("aboutus") ; 
+});
 
-
+app.get("/contact",function(req, res) {
+  res.render("contact") ; 
+});
 
 app.get("/logout",function(req, res) {
     req.logout();

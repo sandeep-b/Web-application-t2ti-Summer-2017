@@ -1,5 +1,328 @@
-<% include partials/header %>
 
+<html>
+    <head>
+        <title>NGO application</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://use.fontawesome.com/3ca0880bf0.js"></script>
+        <link rel="stylesheet" href="/stylesheets/landing.css">
+        <style>
+body {
+  background-color: #000;
+}
+.social-media {
+    position: fixed;
+    top: 24px;
+    left: 900px;
+    display: -webkit-inline-box;
+    margin-bottom: 0;
+list-style-type: none;
+}
+.buttons-vol{
+    list-style-type: none;
+    display: -webkit-inline-box;
+}
+.btn-default {
+    background: #000000;
+    border-color: #000000;
+    color: #d6b014;
+}
+.btn-volunteer {
+    padding: 12px 31px !important;
+    float: right;
+    
+    color: #fff;
+    position:fixed;
+    top:20px;
+    right:300px;
+    font-size: 12px !important;
+    /* font-family: "latoblack",sans-serif !important; */
+    font-family: 'Lato', sans-serif;
+    font-weight: normal !important;
+    background-color:#337ab7 ;
+    color: white;
+}
+.btn-donate {
+    padding: 12px 31px !important;
+    float: right;
+   
+    color: #fff;
+    position:absolute;
+    top:20px;
+    right:180px;
+    font-size: 12px !important;
+    /* font-family: "latoblack",sans-serif !important; */
+    font-family: 'Lato', sans-serif;
+    font-weight: normal !important;
+    background-color:#337ab7 ;
+    color: white;
+}
+
+
+
+.fa{
+    font-size:30px;
+}
+.social-media li a{
+    display:block;
+}
+.social-media li a i {
+    margin-right: 28px;
+    
+}
+.note{
+    width: 600px;
+ height: 300px;
+ z-index: 2;
+ background-color: #f5f5f5;
+ position:relative;
+}
+
+img {
+    /* vertical-align: middle; */
+    width: 95px;
+    height: 95px;
+    position: fixed;
+    left: 80px;
+    top: 2px;
+   padding:1px;
+   border:1px solid #021a40;
+   background-color:#ff0;
+}
+ img:hover{ z-index: 9999; }
+/*.header img {
+  float: left;
+  width: 50px;
+  height: 50px;
+  
+}*/
+ textarea
+    {
+        border: 1px solid #EEEEEE;
+        box-shadow: 1px 1px 0 #DDDDDD;
+        display: block;
+        font-family: 'Marck Script',cursive;
+        font-size: 22px;
+        line-height: 50px;
+        margin: 2% auto;
+        padding: 11px 20px 0 70px;
+        resize: none;
+        height: 689px;
+        width: 530px;
+
+        background-image: -moz-linear-gradient(top , transparent, transparent 49px,#E7EFF8 0px), -moz-radial-gradient(4% 50%, circle closest-corner, #f5f5f5, #f5f5f5 39%, transparent 0%), -moz-radial-gradient(3.9% 46% , circle closest-corner, #CCCCCC, #CCCCCC 43.5%, transparent 0%); 
+        background-image: -webkit-linear-gradient(top , transparent, transparent 49px,#E7EFF8 0), -webkit-radial-gradient(4% 50%, circle closest-corner, #f5f5f5, #f5f5f5 39%, transparent 0%), -webkit-radial-gradient(3.9% 46%, circle closest-corner, #cccccc, #cccccc 43.5%, transparent 0%);
+
+        -webkit-background-size:  100% 50px;
+        background-size: 100% 50px;
+    }
+/*.lines {
+  border-left: 1px solid #ffaa9f;
+  border-right: 1px solid #ffaa9f;
+  width: 2px;
+  float: left;
+  height: 495px;
+  margin-left: 40px;
+}
+.p p {
+  list-style: none;
+  border-bottom: 1px dotted #ccc;
+  text-indent: 25px;
+  height: auto;
+  padding: 10px;
+  text-transform: capitalize;
+}
+.p {
+    z-index: 2;
+  color: #555;
+  font-size: 22px;
+  padding: 0 !important;
+  width: 500px;
+  font-family: courier, monospace;
+  border: 1px solid #dedede;
+}*/
+.navbar {
+    z-index: 1;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    min-height: 100px;
+}
+.navbar-default .navbar-brand {
+    position: relative;
+    top: 58px;
+    color: #777;
+    font-size:20px;
+}
+.navbar-default .navbar-nav>li>a {
+    position: relative;
+    top: 60px;
+    font-size:16px;
+    /* line-height: 100px; */
+    color: #777;
+}
+.slideshow { 
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slideshow li { 
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: 0;
+  animation: imageAnimation 50s linear infinite; 
+}
+
+.slideshow li:nth-child(1) { 
+  background-image: url(http://www.msz.gov.pl/resource/a16fc7fa-1b5b-4d27-8fb4-6a65ac2648a2:JCR) 
+}
+.slideshow li:nth-child(2) { 
+  background-image: url(https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/A7LS7BWQ1V.jpg);
+  animation-delay: 10s; 
+}
+.slideshow li:nth-child(3) { 
+  background-image: url(https://cdn.pixabay.com/photo/2014/04/23/14/47/boy-330582_960_720.jpg);
+  animation-delay: 20s; 
+}
+.slideshow li:nth-child(4) { 
+  background-image: url(https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/V8JSA4G4C6.jpg);
+  animation-delay: 30s; 
+}
+.slideshow li:nth-child(5) { 
+  background-image: url(http://www.girlsnotbrides.org/wp-content/uploads/2015/07/2011_08-Girls-running-i-India-Photo-credit-Graham-Crouch%EF%80%A7Girls-Not-Brides.jpg);
+  animation-delay: 40s; 
+}
+
+@keyframes imageAnimation { 
+  0% { 
+    opacity: 0; 
+    animation-timing-function: ease-in;
+  }
+  10% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  20% {
+    opacity: 1
+  }
+  30% {
+    opacity: 0
+  }
+}
+
+/* Older browser support - class added by modernizr */
+.no-cssanimations .slideshow li {
+	opacity: 1;
+} 
+        </style>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+    </head>
+    <body>
+   <nav class="navbar navbar-default">
+        <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand navbar-left" href="/"> <strong><img src="http://i66.tinypic.com/mutki8.jpg" style="width:120 px; height: 120 px;" alt="logo" ></strong></a>
+                <a class="navbar-brand" href="/">Home</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                 <ul class="social-media">
+                     <li class="social-facebook">
+                     <a  target="_blank" href="https://www.facebook.com">
+                    <i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li class="social-twitter">
+                    <a target="_blank" href="https://www.twitter.com">
+                    <i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li class="social-instagram">
+                    <a  target="_blank" href="https://www.instagram.com">
+                    <i i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-center">
+                   
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/">Projects</a></li>
+                    <li><a href="/">Blog</a></li>
+                     <li><a href="/contact">Conatct Us</a></li>
+                      </ul>
+                       <ul class="buttons-vol">
+                           <li class="button-vol">
+                      <a href="/" class="btn btn-default btn-volunteer">volunteer</a></li>
+                                                 <li class="button-donate">
+                      <a href="/" class="btn btn-default btn-donate">donate</a></li>
+                      </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <% if(!currentUser){ %>
+                      <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
+                       
+                     <% } else { %>
+                     <li><a href="#">Signed In As <%= currentUser.username %></a></li>
+                     <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
+                     <% } %>
+                    
+                </ul>
+            </div>
+            
+        </div>
+    </nav>
+    <!--div class="note" >
+        <textarea>
+            how are you
+            im fine
+        </textarea>
+    </div-->
+    
+   <div class="container" style="text-align:center;">
+        
+        <% if(error && error.length > 0){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+        <% } %>
+    </div>
+
+<div class="container" style="z-index: 1 ;position: fixed; ">
+              <div class="row" style=" z-index: 1; position: fixed;">
+              <div style="width :60%; vertical-align:top; margin:0 auto;z-index: 1; position: fixed;">
+                  <div class="jumbotron jumbotron-fluid" style="width :60%;vertical-align:top;margin:0 auto;z-index: 1;position: fixed;top: 300px;right: 190px; opacity: 0.9;">
+                  <p style=" z-index: 1; opacity=1;">Teach to Transform India is an NGO that works to build basic infrastructure in public schools,
+broaden the horizon of kids through digitization and connecting them to people like you, from
+various walks of life. Your time and support is essential to bring about this change.</p>
+            </div>
+                </div>
+             
+</div>
+     </div>
+<ul class="slideshow">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
 
 
 <% include partials/footer %>
