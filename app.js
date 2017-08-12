@@ -2,6 +2,7 @@ var express     = require("express"),
     app         = express(),
     bodyParser  = require("body-parser"),
     mongoose    = require("mongoose"),
+    
     passport    = require("passport"),
     methodOverride = require("method-override"),
     LocalStrategy = require("passport-local"),
@@ -12,17 +13,18 @@ var express     = require("express"),
     User        = require("./models/user"),
     Role        = require("./models/role"),
     Schoolrep   = require("./models/schoolrep"),
-    Contributor   = require("./models/contributor");
-
+    Contributor   = require("./models/contributor"),
+    Contributions   = require("./models/contribution");
 //prod db: mongodb://<dbuser>:<dbpassword>@ds159662.mlab.com:59662/t2ti
 //"mongodb://t2ti:t2ti2017@ds159662.mlab.com:59662/t2ti"
 //localDB: mongodb://localhost/ngo1
+//mongodb://127.0.0.1/mydb
+//mongodb://127.0.0.1/ngo1
 mongoose.connect("mongodb://t2ti:t2ti2017@ds159662.mlab.com:59662/t2ti");
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine","ejs") ;
 app.use(methodOverride("_method"));
 app.use(flash());
-
 app.use(require("express-session")({
     secret:"abc",
     resave:false,
@@ -135,7 +137,7 @@ app.post("/details/SchoolRep",isLoggedIn,function(req,res){
     var email=req.body.email;
     var telephone=req.body.telephone;
     var mobile=req.body.mobile;
-    console.log(req.body.laptop);
+//    console.log(req.body.laptop);
      Infra.push({
       fan : req.body.fan,
      lights:req.body.lights,
@@ -144,7 +146,7 @@ app.post("/details/SchoolRep",isLoggedIn,function(req,res){
      tboys:req.body.tboys,
      tgirls:req.body.tgirls,
  } );
- console.log(req.body.laptop);
+// console.log(req.body.laptop);
  Digital.push({
      laptop:req.body.laptop,
      keyboard:req.body.keyboard,
@@ -332,12 +334,38 @@ app.post("/details/Contributor",function(req, res) {
       }
   });
   res.redirect("/Contributor/ "+ req.user.id);      
-    
-             
-             
-             
-         
-     
+   
+});
+
+app.get("/Contributor/contributions",function(req, res) {
+    console.log("Id is"+  req.user.id);
+    Contributor.findOne({username:req.user.id}).populate("entries").exec(function(err,contribution){
+            if(err)
+            {
+              console.log(err); 
+            }
+            else{
+            console.log(contribution);
+             res.render("contributions",{contribution:contribution});
+            }
+        });
+    // console.log("im HERE");
+    // res.render("contact");
+});
+app.get("/School/contributions/details/:id",function(req, res) {
+    //console.log("Id is"+  req.user.id);
+    Schoolrep.findById(req.params.id).populate("entries").exec(function(err,contribution){
+            if(err)
+            {
+              console.log(err); 
+            }
+            else{
+            console.log(contribution);
+             res.render("contributiondetails",{contribution:contribution});
+            }
+        });
+    // console.log("im HERE");
+    // res.render("contact");
 });
 app.get("/Contributor/:id",function(req,res){
     Contributor.find({username:req.user.id},function(err,rep){
@@ -385,12 +413,16 @@ app.get("/Contributor/details/:id",function(req, res) {
     });
 });
 
+
+
+
+
 app.post("/Contributor/details/:id",function(req, res) {
     //console.log("Id"+req.body.fan);
  Schoolrep.findByIdAndUpdate(req.params.id, { $inc: { "Infra.0.fan": -(req.body.fan), 
  "Infra.0.lights": -(req.body.lights),"Infra.0.purifier": -(req.body.purifier),"Infra.0.board": -(req.body.board),
  "Infra.0.tboys": -(req.body.tboys),"Infra.0.tgirls": -(req.body.tgirls),
- "Digital.0.laptop": -(req.body.tboys),"Digital.0.monitor": -(req.body.monitor),"Digital.0.cpu": -(req.body.cpu),
+ "Digital.0.laptop": -(req.body.laptop),"Digital.0.monitor": -(req.body.monitor),"Digital.0.cpu": -(req.body.cpu),
  "Digital.0.projector": -(req.body.projector),"Digital.0.mouse": -(req.body.mouse),"Digital.0.keyboard": -(req.body.keyboard),
  "Stationaries.0.rbooks": -(req.body.rbooks),"Stationaries.0.urbooks": -(req.body.urbooks),"Stationaries.0.mbooks": -(req.body.mbooks),
 "Stationaries.0.cbooks": -(req.body.cbooks),"Stationaries.0.dictonary": -(req.body.dictonary),"Stationaries.0.atlas": -(req.body.atlas),
@@ -413,7 +445,7 @@ app.post("/Contributor/details/:id",function(req, res) {
     var Digital=[];
     var Stationaries=[];
     var Ecurriculum=[];
-    var School=[];
+    //var School=[];
 Infra.push({
       fan : req.body.fan,
      lights:req.body.lights,
@@ -446,7 +478,7 @@ Infra.push({
      gbox:req.body.gbox,
  });
      
-     //console.log(Stationaries);
+     console.log(Stationaries);
 Ecurriculum.push({
     hygiene:req.body.hygiene,
     eawarness:req.body.eawarness,
@@ -458,43 +490,91 @@ Ecurriculum.push({
     craft:req.body.craft,
     debate:req.body.debate,
 });
-School.push({
-    sid: req.params.id ,
-    Infra:Infra,
-    Digital:Digital,
+// School.push({
+//   // id: req.params.id,
+//     Infra:Infra,
+//     Digital:Digital,
     
-});
+// });
 
 
-Contributor.update({username:req.user.id},{$push:{School:School}},function(err, result) {
-    if(err)
-    {
-        console.log(err);
-    }
-    //console.log(result);
-   else{
+
+// Contributions.update({username:req.user.id},{ $push: { School: School } },function(err, result) {
+//     if(err)
+//     {
+//         console.log(err);
+//     }
+//     //console.log(result);
+//   else{
         
             
         
-    }
-});
-console.log(req.params.id);
-Contributor.find(
+//     }
+// });
+//console.log(req.params.id);
+// var items= Contributor.find(
+//     {
+//     username:req.user.id,
+//     School:"596e5be285a0b3155a5826b6"
+        
+//     }
+//     );
+// for (var value of items)
+// {
+//     console.log(value);
+// }  
+console.log( "Scoolid :" + req.params.id);
+var Contributionsnew={username:req.user.id,schoolid:req.params.id,Infra:Infra,Digital:Digital,Stationaries:Stationaries,Ecurriculum:Ecurriculum};
+
+console.log("contrinew is"+ Contributionsnew.Digital.mouse);
+Contributions.create(Contributionsnew,function(err, contri) {
     
-    { "School.0.sid":req.params.id} ,function(err, re){
+        Contributor.findOne({username:req.user.id},function(err,cont){
             if(err)
             {
-               console.log(err);
-               
+               console.log(err); 
             }
             else{
-              //  var as = JSON.parse(re[0].School[0]["Infra"]);
-                console.log("Re is : "+re[0]);
+            //console.log( "contents are " + contri)    ;
+             cont.entries.push(contri); 
+             cont.save();
+             
             }
-            
+        });
+        Schoolrep.findById(req.params.id,function(err,cont){
+            if(err)
+            {
+               console.log(err); 
+            }
+            else{
+                
+            console.log( "contents are " + contri)    ;
+             cont.entries.push(contri); 
+             cont.save();
+             
+            }
+        });
+    
+});
+
+
+
+// Contributor.find( { "School.0.id" : "5968aa301e20711b62d2506f"} ,function(err, re){
+    
+//             if(err)
+//             {
+//               console.log(err);
+               
+//             }
+//             else{
+//                 console.log(req.params.id);
+//               //  var as = JSON.parse(re[0].School[0]["Infra"]);
+//                 console.log("Re is : "+re);
+//             }
+     
         
             
-        } );
+//         } );
 
 
 var transporter = nodemailer.createTransport({
@@ -545,6 +625,9 @@ transporter.sendMail(mailOptions, function(error, info){
  //console.log(Schoolrep.id);
 res.redirect("/Contributor/details/"+req.params.id);
 });
+
+
+
 
 app.post("/register", function(req, res){
     var newUser = new User({username: req.body.email});
@@ -640,7 +723,7 @@ app.post("/login", passport.authenticate("local",
               if(role[0].role=="Schoolrep")
               {
                   //res.redirect("/new");
-                  req.flash("success","Welcome to this application"+user.username);
+                  //req.flash("success","Welcome to this application"+user.username);
                   res.redirect("/details/SchoolRep/" + user[0].id);
               }
               else
@@ -649,8 +732,8 @@ app.post("/login", passport.authenticate("local",
               }
           }
               });
-          }
           
+          }
      });
 });
 
@@ -772,6 +855,34 @@ app.post('/reset/:token', function(req, res) {
 });
 
 app.get("/about",function(req, res) {
+    res.render("aboutus");
+});
+app.post("/about",function(req, res) {
+    
+     
+     var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'sandeepb518s@gmail.com',
+    pass: 'sandeep is great'
+  }
+});
+
+var mailOptions = {
+  from: 'sandeepb518s@gmail.com',
+  to: 'deepak.nk92@gmail.com' ,
+  subject: 'Mail from about us ',
+  text: 'This message is sent by '+ ' '+ req.body.fullname+ 'with email id '+ req.body.email+'. The message is '+ req.body.message
+};
+
+transporter.sendMail(mailOptions, function(error, info){
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Email sent: ' + info.response);
+  }
+});
+     
   res.render("aboutus") ; 
 });
 

@@ -1,0 +1,20 @@
+<% include partials/header %>
+<%contribution.entries.forEach(function(school){%>
+
+<% function clean(obj) {
+obj=obj.toObject() %>
+  <% for (var Name in obj ) {  %>
+   <% if (obj[Name] == 0 ) 
+      {
+       console.log(Name)   ;
+      }
+      else
+      { %>
+     <p>  <%= Name %> <%= obj[Name] %> </p>
+      <% }
+  }
+} %>
+<%= clean(school.Ecurriculum[0] )%>
+<% }) %>
+
+<% include partials/footer %>

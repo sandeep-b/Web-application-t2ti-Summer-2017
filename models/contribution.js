@@ -1,22 +1,11 @@
 var mongoose=require("mongoose");
 var passportLocalMongoose=require("passport-local-mongoose");
 
-var SchoolrepSchema=new mongoose.Schema({
-   sname :String,
-   rname :String,
-   address : String,
-   city: String,
-   pincode: Number,
-   telephone:Number,
-   mobile: Number,
-   email : String,
-   username:{
-        id:{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "User"
-        }
-        },
-Infra :[{
+var ContributionsSchema=new mongoose.Schema({
+    username:String,
+        
+    schoolid:String,
+     Infra :[{
 
      lights :Number,
      fan: Number,
@@ -72,13 +61,11 @@ Ecurriculum:[{
     istory:Number,
     craft:Number,
     debate:Number,
-}],
-entries:[{
-          type: mongoose.Schema.Types.ObjectId,
-          ref:"Contributions"
-          
-      }]
+}], 
+      
+
 });
 
-SchoolrepSchema.plugin(passportLocalMongoose);
-module.exports = mongoose.model("Schoolrep", SchoolrepSchema);
+
+ContributionsSchema.plugin(passportLocalMongoose);
+module.exports = mongoose.model("Contributions", ContributionsSchema);
