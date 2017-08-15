@@ -2,30 +2,391 @@
     <head>
         <title>NGO application</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="  crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
         <script src="https://use.fontawesome.com/3ca0880bf0.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <style>
+             /*
+* ==========================================================================
+* Global
+* ==========================================================================
+*/
+
+.btn-primary{
+  margin-left: 20px;
+}
+.blog-title{
+  color: #385A30;
+  font-family: "Lato";
+  font-variant: small-caps;
+}
+
+ .main-content{
+    margin-top: 20px;
+    padding-bottom: 50px;
+    text-align: left;
+}
+
+.section-global-wrapper {
+  position: relative;
+}
+.section-global-wrapper:before,
+.section-global-wrapper:after {
+  content: " ";
+  display: table;
+}
+.section-global-wrapper:after {
+  clear: both;
+}
+.container-fluid-kamn {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.container-kamn {
+  /* margin-right: auto; */
+  margin-left: auto;
+}
+
+
+@media (min-width: 1068px) and (max-width: 1400px) { 
+ .post-sidebar{
+    margin-top: 15px;
+    border:1px solid #DDD;
+    padding: 5px;
+  }
+ 
+}
+@media (min-width: 750px) and (max-width: 1060px) { 
+ .post-sidebar{
+    width:204px;
+    margin-top: 15px;
+    border:1px solid #DDD;
+    padding: 5px;
+    float: right;
+
+ }
+}
+
+
+.tales {
+  width: 100%;
+}
+.blog-post{
+ margin-bottom: 30px;   
+}
+.blog-image{
+    margin-bottom: 20px;
+}
+.carousel-inner{
+  width:100%;
+  max-height: 500px !important;
+}
+.post-sidebar{
+    margin-top: 15px;
+    border:1px solid #DDD;
+    padding: 5px;
+  
+
+ }
+.form-group{
+    
+    padding:20px;
+}
+ul li{
+    list-style: none;
+}
+h3.col-xs-12{
+    margin-top: -20px;
+
+}
+.content-space{
+    margin-top: 40px;
+}
+.center{
+    text-align: center;
+}
+.block-author{
+    color: #D7002E;
+}
+
+.btn-info{
+float: right;
+}
+
+
+.icon-space{
+    display: inline-block;
+    padding:10px;
+}
+.current span{
+    color:#55CBD2;
+
+}
+
+
+.title-text{
+  font-family: 'Raleway', sans-serif;  
+  letter-spacing: .2px;
+  font-size: 40px;
+}
+.img-pad{
+    padding-right: 23px;
+}
+.main-content{
+    margin-top: 80px;
+}
+
+
+
+.white-text{
+    font-style: italic;
+    color: white;
+}
+
+body {
+    font-size: 15px;
+    line-height: 24px;
+    background:#F8FAFF;
+   
+}
+
+a {
+    color: #55CBD2;
+    text-decoration: none;
+    -o-transition: all .3s;
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    -ms-transition: all .3s;
+}
+
+a:hover { color: #888; text-decoration: none; }
+
+strong { font-weight: bold; }
+
+address {
+    margin-top: 28px;
+    }
+
+
+@media (min-width: 50px) and (max-width: 988px) { 
+ 
+ address {
+    margin-top: 28px;
+    margin-left: 21px;
+    }
+ 
+}
+@media (min-width: 988px) and (max-width: 1200px) { 
+ 
+ address {
+    margin-top: 28px;
+    margin-left: -58px;
+ }
+    }
+ 
+            
+            
+            /*
+* ==========================================================================
+* Nav Pills
+* ==========================================================================
+*/
+.nav-pills > li.selected > a,
+.nav-pills > li.selected > a:hover,
+.nav-pills > li.selected > a:focus {
+  color: #ffffff;
+  background-color: #1bbd9b;
+}
+/*
+* ==========================================================================
+* Pills Centered
+* ==========================================================================
+*/
+.nav-pills-centered > .nav-pills {
+  text-align: center;
+}
+.nav-pills-centered > .nav-pills > li {
+  float: none;
+  display: inline;
+}
+.nav-pills-centered > .nav-pills > li > a,
+.nav-pills-centered > .nav-pills > li > span {
+  display: inline-block;
+  padding: 5px 14px;
+}
+.nav-pills-centered > .nav-pills > li > a.active,
+.nav-pills-centered > .nav-pills > li > span.active,
+.nav-pills-centered > .nav-pills > li > a.selected,
+.nav-pills-centered > .nav-pills > li > span.selected {
+  color: #ffffff;
+  background-color: #1bbd9b;
+}
+/*
+* ==========================================================================
+* Navbar
+* ==========================================================================
+*/
+.active{
+  background:#74B9B9 !important;
+  color: white;
+}
+.navbar {
+  font-weight: bold;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 0;
+  background:rgba(153, 211, 213, 0.32);
+}
+/*
+* ==========================================================================
+* Navbar Nav Links
+* ==========================================================================
+*/
+.navbar-nav > li > a {
+  padding: 10px 15px;
+  margin: 5px 5px;
+  border-radius: 4px;
+}
+/*
+* ==========================================================================
+* Brand / Project Name
+* ==========================================================================
+*/
+.navbar-brand {  
+  z-index: 9999px;
+  font-family: 'Lato', Arial, Helvetica, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding-top: 0px;
+}
+.side-left{
+  background:#528C7C;
+  box-shadow: 3px grey;
+  color: white;
+  padding: 30px;
+  letter-spacing: .9px;
+}
+@media (min-width: 800px){ 
+ 
+    .side-left{
+  height: 1248px;
+}
+ }
+
+.banner-text{
+    font-family: 'Raleway', sans-serif;
+    color:white;
+    font-size: 50px;
+
+    }
+
+#banners{
+    
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+#banner-home{
+    background-image:url('../img/slider/1.jpg');
+    height:350px;
+    margin-bottom: 30px;
+    padding-top: 120px;
+}
+.imgbrand {
+    /* vertical-align: middle; */
+    max-width:100;
+    width: 95px;
+    height: 95px;
+    /*position: fixed;*/
+    /*left: 80px;*/
+    /*top: 2px;*/
+   padding:1px;
+   border:1px solid #021a40;
+   background-color:#ff0;
+}
+
+@media (min-width: 100px) and (max-width: 800px) { 
+ 
+    #banner-home{
+    background-image:url('../img/slider/1.jpg');
+    height:450px;
+    margin-bottom: 30px;
+    }
+ }
+#banner{
+    margin-top:0px;
+}
+
+
+.header h1 {
+    float: left;
+    margin: 0;
+    text-align: left;
+}
+.header a.brand {
+
+    font-family: 'PT Sans', sans-serif;
+    font-size: 40px;
+    margin-top:5px;
+    display: inline-block;
+    width: 270px;
+    height: 96px;
+    padding: 30px 10px;
+    /*background: url(../img/logo.png) 20px center no-repeat; */
+}
+.navbar-default {
+    /* background-color: #f8f8f8; */
+    border-color: #e7e7e7;
+}
+
+@media (max-width: 768px){
+ .navbar-brand .imgbrand {
+    height: 70px;
+    width: 70px;
+}
+}
+@media (min-width: 50px) and (max-width: 768px) { 
+        .header a.brand {
+        width: 170px;
+        margin-top:-41px;
+        margin-top: -41px;
+        position: absolute;
+        font-size: 37px;
+     } 
+ } 
+        </style>
     </head>
     <body>
-         <nav class="navbar navbar-default">
+        
+           <nav  id ="navbar-section" class="navbar navbar-default navbar-static-top navbar-sticky">
         <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-spy" aria-expanded="false" aria-controls="navbar">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-                <a class="navbar-brand" href="/">Home</a>
+            
+                <a class="navbar-brand animated fadeInDownBig " style= " visibility: visible;animation-name: fadeInDownBig; " href="/"><strong><img class="imgbrand" src="http://i66.tinypic.com/mutki8.jpg" alt="logo" ></strong></a>
             </div>
-            <div class="collapse navbar-collapse">
+            <div id="navbar-spy" class="collapse navbar-collapse navbar-responsive-collapse">
+                
                 <ul class="nav navbar-nav navbar-center">
-                    
-                    <li><a href="/">About US</a></li>
-                     <li><a href="/">Conatct US</a></li>
+                   <li><a  href="/">Home</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/">Blog</a></li>
+                     <li><a href="/contact">Conatct Us</a></li>
                       </ul>
+                      
                     <ul class="nav navbar-nav navbar-right">
+                        
                         <% if(!currentUser){ %>
                       <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
@@ -36,6 +397,7 @@
                      <% } %>
                     
                 </ul>
+                </div>
             </div>
             
         </div>

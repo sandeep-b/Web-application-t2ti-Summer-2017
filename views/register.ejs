@@ -1,6 +1,17 @@
 <% include partials/header %> 
 
-
+<style>
+.icon-space{
+    display: inline-block;
+    padding:10px;
+}
+    .form-group {
+    padding: 0px;
+}
+.btn-primary {
+     margin-left: 0px; 
+}
+</style>
 
 <div class="row">
     <h1 style="text-align: center">Sign Up</h1>
@@ -13,12 +24,12 @@
                 <input class="form-control" type="password" name="password" placeholder="password">
             </div>
             <div class="form-group">
-            <div class="col-sm-3" ></div>
-            <label for="srep">Schoolrep</label>
-        <input type="radio" id="srep" name="role" value="Schoolrep" required />
-        <span style="display:inline-block; width:30px;"></span>
+            <div class="col-sm-2" ></div>
+            <label for="srep" >School representative</label>
+        <input type="radio" id="srep" name="role"  value="Schoolrep" required />
+        <span class="icon-space"></span>
         <label for="don">Contributor</label>
-        <input type="radio" id="don" name="role" value="Contributor" />
+        <input type="radio" id="don"  name="role" value="Contributor" />
         </div>
             <div class="form-group">
                 <button class="btn btn-lg btn-primary btn-block">Sign Up!</button>

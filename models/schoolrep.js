@@ -77,7 +77,7 @@ entries:[{
           type: mongoose.Schema.Types.ObjectId,
           ref:"Contributions"
           
-      }]
+      }],
 });
 
 SchoolrepSchema.plugin(passportLocalMongoose);

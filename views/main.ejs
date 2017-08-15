@@ -1,18 +1,23 @@
+<%include partials/header %>
 
-<html>
-    
-    <head>
-        <title>NGO application</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="https://use.fontawesome.com/3ca0880bf0.js"></script>
-        
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
         
         
         <style>
+        
+        .icon-space{
+    display: inline-block;
+    padding:10px;
+}
+.current span{
+    color:#55CBD2;
+
+}
+.navbar-nav  li a {
+    padding: 10px 15px;
+    margin: 5px 5px;
+    border-radius: 4px;
+}
+
 body {
   font-size: 15px;
     line-height: 24px;
@@ -54,7 +59,7 @@ body {
 }
 .carousel-inner{
   width:100%;
-  max-height: 500px !important;
+  /*max-height: 500px !important;*/
 }
 .post-sidebar{
     margin-top: 15px;
@@ -63,6 +68,11 @@ body {
   
 
  }
+ 
+ .services-section .services-icon {
+    color: #1bbd9b;
+    margin-bottom: 30px;
+}
 .form-group{
     
     padding:20px;
@@ -73,6 +83,12 @@ ul li{
 h3.col-xs-12{
     margin-top: -20px;
 
+}
+
+@media (max-width: 767px){
+.services-section .services-group {
+    margin-bottom: 50px;
+}
 }
 .content-space{
     margin-top: 40px;
@@ -111,7 +127,11 @@ float: right;
     margin-top: 80px;
 }
 
-
+.btn-primary {
+    background-color: #ff7200;
+    /* transition: .5s; */
+    padding: 9px 30px;
+}
 
 .white-text{
     font-style: italic;
@@ -156,6 +176,9 @@ address {
     margin-left: -58px;
     }
  
+}
+.services-section .services-row-tail {
+    margin-top: 50px;
 }
 .services-section {
     text-align: center;
@@ -206,6 +229,19 @@ list-style-type: none;
     border-color: #000000;
     color: #d6b014;
 }
+
+.title-text{
+  font-family: 'Raleway', sans-serif;  
+  letter-spacing: .2px;
+  font-size: 40px;
+}
+.img-pad{
+    padding-right: 23px;
+}
+.main-content{
+    margin-top: 80px;
+}
+
 .btn-volunteer {
     padding: 12px 31px !important;
     float: right;
@@ -238,9 +274,19 @@ list-style-type: none;
 }
 
 
-
+@media (max-width: 767px)
+{
+.carousel-caption {
+    font-size: 11px;
+    padding-bottom: 0;
+    bottom: 0;
+}
+}
 .fa{
     font-size:30px;
+}
+.fa-5x{
+    font-size: 5em;
 }
 .social-media li a{
     display:block;
@@ -257,19 +303,7 @@ list-style-type: none;
  position:relative;
 }
 
-#imgbrand {
-    /* vertical-align: middle; */
-    max-width:100;
-    width: 95px;
-    height: 95px;
-    /*position: fixed;*/
-    /*left: 80px;*/
-    /*top: 2px;*/
-   padding:1px;
-   border:1px solid #021a40;
-   background-color:#ff0;
-}
- img:hover{ z-index: 9999; }
+ /*img:hover{ z-index: 9999; }*/
 /*.header img {
   float: left;
   width: 50px;
@@ -278,45 +312,29 @@ list-style-type: none;
 }*/
 
 
-.navbar {
- font-weight: bold;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    margin-bottom: 0;
-    position: relative;
-    min-height: 50px;
-    /*margin-bottom: 20px;*/
-    border: 1px solid transparent;
-    background: rgba(153, 211, 213, 0.32);
-    
-}
 
-.navbar-static-top {
-    z-index: 1000;
-    border-width: 0 0 1px;
-}
 
-@media (min-width: 1200px)
-bootstrap.css:753
-.container {
-    width: 1170px;
-}
-@media (min-width: 992px)
-bootstrap.css:748
-.container {
-    width: 970px;
-}
-@media (min-width: 768px)
-bootstrap.css:743
-.container {
-    width: 750px;
-}
-@media (min-width: 768px)
-bootstrap.css:3703
-.container  .navbar-header{
-    margin-right: 0;
-    margin-left: 0;
-}
+
+
+/*@media (min-width: 1200px){*/
+
+/*.container {*/
+/*    width: 1170px;*/
+/*}*/
+/*}*/
+/*@media (min-width: 992px){*/
+
+/*.container {*/
+/*    width: 970px;*/
+/*}*/
+/*}*/
+/*@media (min-width: 768px)*/
+/*{*/
+/*.container {*/
+/*    width: 750px;*/
+/*}*/
+/*}*/
+
 .container {
     padding-right: 15px;
     padding-left: 15px;
@@ -324,109 +342,8 @@ bootstrap.css:3703
     margin-left: auto;
 }
 
-.container  .navbar-header{
-        margin-right: -15px;
-    margin-left: -15px;
-}
-@media (min-width: 768px)
-bootstrap.css:3654
-.navbar-header {
-    float: left;
-}
-@media (min-width: 768px)
-bootstrap.css:3781
-.navbar-toggle {
-    display: none;
-}
-.navbar-toggle {
-    position: relative;
-    float: right;
-    padding: 9px 10px;
-    margin-top: 8px;
-    margin-right: 15px;
-    margin-bottom: 8px;
-    background-color: transparent;
-    background-image: none;
-    border: 1px solid transparent;
-    border-radius: 4px;
-}
-.navbar-default .navbar-toggle {
-    border-color: #ddd;
-}
-
-@media (min-width: 768px)
-bootstrap.css:3752
-.navbar.container.navbar-brand {
-    margin-left: -15px;
-}
-.navbar-default .navbar-brand {
-    color: #777;
-}
-.navbar-brand {
-   z-index: 9999px;
-    font-family: 'Lato', Arial, Helvetica, sans-serif;
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    padding-top: 0px;
-    float: left;
-    height: 50px;
-    padding: 15px 15px;
-    font-size: 18px;
-    line-height: 20px;
-}
-
-@media (min-width: 768px).container.navbar-collapse{
-    margin-right: 0;
-    margin-left: 0;
-}
 
 
-.container .navbar-collapse{
-    margin-right: -15px;
-    margin-left: -15px;
-}
-@media (min-width: 768px).navbar-static-top .navbar-collapse{
-    padding-right: 0;
-    padding-left: 0;
-}
-@media (min-width: 768px)
-bootstrap.css:3676
-.navbar-collapse.collapse {
-    display: block !important;
-    height: auto !important;
-    padding-bottom: 0;
-    overflow: visible !important;
-}
-
-@media (min-width: 768px)
-bootstrap.css:3671
-.navbar-collapse {
-    width: auto;
-    border-top: 0;
-    box-shadow: none;
-}
-
-.navbar-collapse {
-    max-height: 340px;
-    padding-right: 15px;
-    padding-left: 15px;
-    overflow-x: visible;
-    -webkit-overflow-scrolling: touch;
-    border-top: 1px solid transparent;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1);
-}
-.collapse {
-    display: none;
-}
-
-.navbar-default .navbar-nav>li>a {
-    position: relative;
-    /*top: 60px;*/
-    font-size:16px;
-    /* line-height: 100px; */
-    color: #777;
-}
 .slideshow { 
   position: fixed;
   width: 100%;
@@ -552,6 +469,18 @@ footer h3 {
     color: #ffffff;
 }
 
+.carousel-caption {
+    position:absolute;
+    color: #ffffff;
+    padding-top:240px;
+    /*padding-bottom:60px;*/
+}
+/*.overlay {*/
+/*    background-color: rgba(41, 39, 34, 0.75);*/
+/*    width: 100%;*/
+/*    height: 670px;*/
+/*}*/
+
 .copyright {
     color: #fff;
     padding: 20px 0px 10px 0px;
@@ -563,47 +492,8 @@ footer h3 {
 } 
         </style>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
-    </head>
-    <body>
-   <nav  id ="navbar-section" class="navbar navbar-default navbar-static-top navbar-sticky">
-        <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            
-                <a class="navbar-brand animated fadeInDownBig " style= " visibility: visible;animation-name: fadeInDownBig; " href="/"><strong><img id="imgbrand" src="http://i66.tinypic.com/mutki8.jpg" style="width:120 px; height: 120 px;" alt="logo" ></strong></a>
-            </div>
-            <div id="navbar-spy" class="collapse navbar-collapse navbar-responsive-collapse">
-                
-                <ul class="nav navbar-nav navbar-center">
-                   <li><a  href="/about">Home</a></li>
-                    <li><a href="/about">About Us</a></li>
-                    <li><a href="/">Projects</a></li>
-                    <li><a href="/">Blog</a></li>
-                     <li><a href="/contact">Conatct Us</a></li>
-                      </ul>
-                      
-                    <ul class="nav navbar-nav navbar-right">
-                        
-                        <% if(!currentUser){ %>
-                      <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
-                       
-                     <% } else { %>
-                     <li><a href="#">Signed In As <%= currentUser.username %></a></li>
-                     <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
-                     <% } %>
-                    
-                </ul>
-                </div>
-            </div>
-            
-        </div>
-    </nav>
+    
+   
     <!--div class="note" >
         <textarea>
             how are you
@@ -611,6 +501,7 @@ footer h3 {
         </textarea>
     </div-->
     <section id="carousel-section" class="section-global-wrapper"> 
+    <div class="overlay">
         <div class="container-fluid-kamn">
             <div class="row">
                 <div id="carousel-1" class="carousel slide" data-ride="carousel">
@@ -628,29 +519,34 @@ footer h3 {
                         <div class="item">
                             <img src="http://i68.tinypic.com/mvol0k.jpg" height="400" alt="Image of first carousel">
                             <div class="carousel-caption">
-                                <h3 class="carousel-title hidden-xs"></h3>
-                                <p class="carousel-body"></p>
+                                <h3 class="carousel-title hidden-xs">krmvrkvkl</h3>
+                                <p class="carousel-body">
+                                                <a href="/login" class="btn btn-primary">LEARN MORE</a>
+                                            </p>
                             </div>
                         </div>
                         <!-- End Slide 1 -->
 
                         <!-- Begin Slide 2 -->
                         <div class="item">
-                            <img src="../images/3.jpg" height="400" alt="Image of second carousel">
+                            <img src="https://i.imgur.com/7NxDvV0.jpg" height="400" alt="Image of second carousel">
                             <div class="carousel-caption">
-                                <h3 class="carousel-title hidden-xs"></h3>
-                                <p class="carousel-body"></p>
+                                <h3 class="carousel-title hidden-xs">cmkjkvkr</h3>
+                                <p class="carousel-body">
+                                                <a href="/login" class="btn btn-primary">LEARN MORE</a>
+                                            </p>
                             </div>
                         </div>
                         <!-- End Slide 2 -->
 
                         <!-- Begin Slide 3 -->
                         <div class="item active">
-                            <img src="http://www.girlsnotbrides.org/wp-content/uploads/2015/07/2011_08-Girls-running-i-India-Photo-credit-Graham-Crouch%EF%80%A7Girls-Not-Brides.jpg" height="400" alt="Image of third carousel">
+                            <!--[IMG]http://i67.tinypic.com/2hropat.jpg[/IMG]-->
+                            <img src="https://i.imgur.com/WLEIDgO.jpg" height="400" alt="Image of third carousel">
                             <div class="carousel-caption">
                                 <h3 class="carousel-title hidden-xs"></h3>
-                                <p class="carousel-body"></p>
-                            </div>
+                                <p class="carousel-body">hello</p>
+                            
                         </div>
                         <!-- End Slide 3 -->
                     </div>
@@ -664,6 +560,7 @@ footer h3 {
                     </a>
                 </div>
             </div>
+        </div>
         </div>
     </section>
    
@@ -687,9 +584,9 @@ footer h3 {
             <div class="row">
                 <div class="services-header">
                     <h3 class="services-header-title">Our Mission</h3>
-                    <p class="services-header-body"><em>Teach to Transform India is an NGO that works to build basic infrastructure in public schools,
+                    <p class="services-header-body"><em><b>Teach to Transform India is an NGO that works to build basic infrastructure in public schools,
 broaden the horizon of kids through digitization and connecting them to people like you, from
-various walks of life. Your time and support is essential to bring about this change  </em>  </p><hr>
+various walks of life. Your time and support is essential to bring about this change  </b></em>  </p><hr>
                 </div>
             </div>
       
@@ -697,28 +594,34 @@ various walks of life. Your time and support is essential to bring about this ch
             <div class="row services-row services-row-head services-row-1">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="services-group wow animated fadeInLeft animated" data-wow-offset="40" style="visibility: visible; animation-name: fadeInLeft;">
-                        <p class="services-icon"><span class="fa fa-android fa-5x"></span></p>
-                        <h4 class="services-title">Android</h4>
-                        <p class="services-body">Cras interdum placerat libero vel tempor. Curabitur gravida iaculis erat quis dignissim.</p>
-                        <p class="services-more"><a href="#">Find Out More</a></p>
+                        <p class="services-icon"><span class="fa fa-graduation-cap fa-5x"></span></p>
+                        <h4 class="services-title">School Representatives</h4>
+                        <p class="services-body">  A platform for representatives from public
+         schools (teachers or principals) to share various issues
+         plaguing their school.
+</p>
+                        <p class="services-more"><a href="/findmore/Schoolrep">Find Out More</a></p>
                     </div>
                 </div>
         
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="services-group wow animated zoomIn animated" data-wow-offset="40" style="visibility: visible; animation-name: zoomIn;">
-                        <p class="services-icon"><i class="fa fa-apple fa-5x"></i></p>
-                        <h4 class="services-title">Apple</h4>
-                        <p class="services-body">Cras interdum placerat libero vel tempor. Curabitur gravida iaculis erat quis dignissim.</p>
-                        <p class="services-more"><a href="#">Find Out More</a></p>
+                        <p class="services-icon"><i class="fa fa fa-heart fa-5x"></i></p>
+                        <h4 class="services-title">Contributors</h4>
+                        <p class="services-body">Provide a platform for passionate contributors
+like you, to connect to public schools and  transform them.
+</p>
+                        <p class="services-more"><a href="/findmore/Contributor">Find Out More</a></p>
                     </div>
                 </div>
         
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="services-group wow animated fadeInRight animated" data-wow-offset="40" style="visibility: visible; animation-name: fadeInRight;">
-                        <p class="services-icon"><span class="glyphicons glyphicons-donate"></span></p>
-                        <h4 class="services-title">EASY TO USE</h4>
-                        <p class="services-body">Cras interdum placerat libero vel tempor. Curabitur gravida iaculis erat quis dignissim.</p>
-                        <p class="services-more"><a href="#">Find Out More</a></p>
+                        <p class="services-icon"><span class=" fa fa-eye fa-5x"></span></p>
+                        <h4 class="services-title">Complete  Transparency </h4>
+                        <p class="services-body">The NGO does not accept any kind of monetary assistance from the contributors. In cases where schools need to avail services  the contributor will directly pay the service provider.</p>
+                        
+                        <!--<p class="services-more"><a href="#">Find Out More</a></p>-->
                     </div>        
                 </div>
             </div>
@@ -727,29 +630,31 @@ various walks of life. Your time and support is essential to bring about this ch
             <!-- Begin Services Row 2 -->
             <div class="row services-row services-row-tail services-row-2">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="services-group wow animated fadeInLeft" data-wow-offset="40" style="visibility: hidden; animation-name: none;">
-                        <p class="services-icon"><span class="fa fa-windows fa-5x"></span></p>
-                        <h4 class="services-title">Windows</h4>
-                        <p class="services-body">Cras interdum placerat libero vel tempor. Curabitur gravida iaculis erat quis dignissim.</p>
-                        <p class="services-more"><a href="#">Find Out More</a></p>
+                    <div class="services-group wow animated fadeInLeft" data-wow-offset="40" style="visibility: visible; animation-name: none;">
+                        <p class="services-icon"><span class="fa fa-wrench fa-5x"></span></p>
+                        <h4 class="services-title">Fix infrastructural issues</h4>
+                        <p class="services-body">Work with local communities and leaders and BBMP to fix basic infrastructural issues such as water purifiers, fans, lighting , separate toilets for boys and girls , etc..</p>
+                        <!--<p class="services-more"><a href="#">Find Out More</a></p>-->
                     </div>
                 </div>
         
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="services-group wow animated zoomIn" data-wow-offset="40" style="visibility: hidden; animation-name: none;">
-                        <p class="services-icon"><i class="fa fa-eye fa-5x"></i></p>
-                        <h4 class="services-title">RETINA READY</h4>
-                        <p class="services-body">Cras interdum placerat libero vel tempor. Curabitur gravida iaculis erat quis dignissim.</p>
-                        <p class="services-more"><a href="#">Find Out More</a></p>
+                    <div class="services-group wow animated zoomIn" data-wow-offset="40" style="visibility: visible; animation-name: none;">
+                        <p class="services-icon"><i class="fa fa-laptop fa-5x"></i></p>
+                        <h4 class="services-title">Digitisation</h4>
+                        <p class="services-body">Install digital devices and set up networks to ensure that each public school
+is equipped to pave way for digital learning 
+</p>
+                        <!--<p class="services-more"><a href="#">Find Out More</a></p>-->
                     </div>
                 </div>
         
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="services-group wow animated fadeInRight" data-wow-offset="40" style="visibility: hidden; animation-name: none;">
-                        <p class="services-icon"><i class="fa fa-cube fa-5x"></i></p>
-                        <h4 class="services-title">Cubic</h4>
-                        <p class="services-body">Cras interdum placerat libero vel tempor. Curabitur gravida iaculis erat quis dignissim.</p>
-                        <p class="services-more"><a href="#">Find Out More</a></p>
+                    <div class="services-group wow animated fadeInRight" data-wow-offset="40" style="visibility: visible; animation-name: none;">
+                        <p class="services-icon"><i class="fa fa-users fa-5x"></i></p>
+                        <h4 class="services-title">Value Added Curriculum</h4>
+                        <p class="services-body">To develop the various facets of personality of kids and help in the development of intellectual, emotional and moral behaviors through extracurricular activities and value add courses.</p>
+                        <!--<p class="services-more"><a href="#">Find Out More</a></p>-->
                     </div>
                 </div>
             </div>
@@ -776,45 +681,7 @@ various walks of life. Your time and support is essential to bring about this ch
 <!--      <li></li>-->
 <!--      <li></li>-->
 <!--    </ul>-->
-<footer> 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h3><i class="fa fa-map-marker"></i> Contact:</h3>
-                    <p class="footer-contact">
-                        Via Ludovisi 39-45, Rome, 54267, Italy<br>
-                        Phone: 1.800.245.356 Fax: 1.800.245.357<br>
-                        Email: hello@LawOffice.org<br>
-                    </p>
-                </div>
-                <div class="col-md-4">
-                    <h3><i class="fa fa-external-link"></i> Links</h3>
-                    <p> <a href="#"> About ( Who we are )</a></p>
-                    <p> <a href="#"> Services ( What we do )</a></p>
-                    <p> <a href="#"> Contact ( Feel free to contact )</a></p>
-                    <p> <a href="#"> Blog ( Write to us )</a></p>
-                    <p> <a href="#"> Team ( Meet the Team )</a></p> 
-                </div>
-              <div class="col-md-4">
-                <h3><i class="fa fa-heart"></i> Socialize</h3>
-                <div id="social-icons">
-                    <a href="#" class="btn-group google-plus">
-                        <i class="fa fa-google-plus"></i>
-                    </a>
-                      <a href="#" class="btn-group linkedin">
-                        <i class="fa fa-linkedin-square"></i>
-                    </a>
-                      <a href="#" class="btn-group twitter">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                      <a href="#" class="btn-group facebook">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                </div>
-              </div>    
-        </div>
-      </div>
-    </footer>
+
     
 
 <script type="text/javascript">
@@ -823,7 +690,7 @@ various walks of life. Your time and support is essential to bring about this ch
     //     interval: 3000
     // });
 
-     $('.carousel').carousel('cycle');
+    // $('.carousel').carousel('cycle');
 </script>
  
     

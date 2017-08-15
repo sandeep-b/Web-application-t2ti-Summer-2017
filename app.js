@@ -2,7 +2,6 @@ var express     = require("express"),
     app         = express(),
     bodyParser  = require("body-parser"),
     mongoose    = require("mongoose"),
-    
     passport    = require("passport"),
     methodOverride = require("method-override"),
     LocalStrategy = require("passport-local"),
@@ -626,8 +625,12 @@ transporter.sendMail(mailOptions, function(error, info){
 res.redirect("/Contributor/details/"+req.params.id);
 });
 
-
-
+app.get("/findmore/Schoolrep",function(req, res) {
+    res.render("staticschool");
+});
+app.get("/findmore/Contributor",function(req, res) {
+    res.render("staticcontributor");
+});
 
 app.post("/register", function(req, res){
     var newUser = new User({username: req.body.email});
@@ -855,7 +858,7 @@ app.post('/reset/:token', function(req, res) {
 });
 
 app.get("/about",function(req, res) {
-    res.render("aboutus");
+    res.render("aboutus")
 });
 app.post("/about",function(req, res) {
     
@@ -872,7 +875,7 @@ var mailOptions = {
   from: 'sandeepb518s@gmail.com',
   to: 'deepak.nk92@gmail.com' ,
   subject: 'Mail from about us ',
-  text: 'This message is sent by '+ ' '+ req.body.fullname+ 'with email id '+ req.body.email+'. The message is '+ req.body.message
+  text: 'This message is sent by '+ req.body.fullname+ 'with emailid '+ req.body.email+'. The message is '+ req.body.message
 };
 
 transporter.sendMail(mailOptions, function(error, info){
