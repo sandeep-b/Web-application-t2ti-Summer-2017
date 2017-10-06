@@ -19,7 +19,8 @@ var express     = require("express"),
 //localDB: mongodb://localhost/ngo1
 //mongodb://127.0.0.1/mydb
 //mongodb://127.0.0.1/ngo1
-mongoose.connect("mongodb://t2ti:t2ti2017@ds159662.mlab.com:59662/t2ti");
+//mongoose.Promise=global.Promise;
+mongoose.connect("mongodb://127.0.0.1/ngo1");
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine","ejs") ;
 app.use(methodOverride("_method"));
@@ -38,7 +39,9 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
+mongoose.connection.once('connected', function() {
+    console.log("Connected to database");
+});
 //SCHEMA
 
 
