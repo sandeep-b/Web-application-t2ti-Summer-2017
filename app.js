@@ -20,7 +20,7 @@ var express     = require("express"),
 //mongodb://127.0.0.1/mydb
 //mongodb://127.0.0.1/ngo1
 //mongoose.Promise=global.Promise;
-mongoose.connect("mongodb://127.0.0.1/ngo1");
+mongoose.connect("mongodb://t2ti:t2ti2017@ds159662.mlab.com:59662/t2ti");
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine","ejs") ;
 app.use(methodOverride("_method"));
